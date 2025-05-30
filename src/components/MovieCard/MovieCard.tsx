@@ -1,0 +1,81 @@
+import type React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+// import { FiHeart, FiStar, FiCalendar } from "react-icons/fi"
+import type { Movie } from '../../types/types';
+import type { RootState } from '../../app/store';
+import { addToFavorites, removeFromFavorites } from '../../features/favoritesSlice';
+import {
+  CardContainer,
+  PosterContainer,
+  MoviePoster,
+  PosterOverlay,
+  FavoriteButton,
+  FavoriteIcon,
+  CardContent,
+  MovieTitle,
+  MovieMeta,
+  MetaItem,
+  MetaIcon,
+  MetaText,
+  MovieDescription,
+} from './MovieCard.styles';
+
+interface MovieCardProps {
+  movie: Movie;
+}
+
+export const MovieCard = ({ movie }: MovieCardProps) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state: RootState) => state.favorites.movies);
+  const isFavorite = favorites.some((fav) => fav.id === movie.id);
+
+  const handleFavoriteToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (isFavorite) {
+      dispatch(removeFromFavorites(movie.id));
+    } else {
+      dispatch(addToFavorites(movie));
+    }
+  };
+
+  const posterUrl = movie.poster_path
+    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+    : 'https://via.placeholder.com/500x750?text=No+Poster';
+
+  const releaseYear = movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A';
+
+  return (
+    <CardContainer>
+      <Link to={`/movie/${movie.id}`}>
+        <PosterContainer>
+          <MoviePoster src={posterUrl} alt={movie.title} loading="lazy" />
+          <PosterOverlay />
+          <FavoriteButton onClick={handleFavoriteToggle}>
+            <FavoriteIcon $isFavorite={isFavorite}>{/* <FiHeart size={16} /> */}</FavoriteIcon>
+          </FavoriteButton>
+        </PosterContainer>
+
+        <CardContent>
+          <MovieTitle>{movie.title}</MovieTitle>
+
+          <MovieMeta>
+            <MetaItem>
+              <MetaIcon>{/* <FiCalendar size={12} /> */}</MetaIcon>
+              <MetaText>{releaseYear}</MetaText>
+            </MetaItem>
+
+            <MetaItem>
+              <MetaIcon>{/* <FiStar size={12} /> */}</MetaIcon>
+              <MetaText>{movie.vote_average.toFixed(1)}</MetaText>
+            </MetaItem>
+          </MovieMeta>
+
+          <MovieDescription>{movie.overview || 'No description available.'}</MovieDescription>
+        </CardContent>
+      </Link>
+    </CardContainer>
+  );
+};
