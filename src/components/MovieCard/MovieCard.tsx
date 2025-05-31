@@ -1,7 +1,7 @@
 import type React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// import { FiHeart, FiStar, FiCalendar } from "react-icons/fi"
+import { Heart, Star, Calendar } from 'lucide-react';
 import type { Movie } from '../../types/types';
 import type { RootState } from '../../app/store';
 import { addToFavorites, removeFromFavorites } from '../../features/favoritesSlice';
@@ -54,7 +54,9 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
           <MoviePoster src={posterUrl} alt={movie.title} loading="lazy" />
           <PosterOverlay />
           <FavoriteButton onClick={handleFavoriteToggle}>
-            <FavoriteIcon $isFavorite={isFavorite}>{/* <FiHeart size={16} /> */}</FavoriteIcon>
+            <FavoriteIcon>
+              <Heart size={24} fill={isFavorite ? 'currentColor' : 'none'} />
+            </FavoriteIcon>
           </FavoriteButton>
         </PosterContainer>
 
@@ -63,12 +65,16 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
 
           <MovieMeta>
             <MetaItem>
-              <MetaIcon>{/* <FiCalendar size={12} /> */}</MetaIcon>
+              <MetaIcon>
+                <Calendar size={12} />
+              </MetaIcon>
               <MetaText>{releaseYear}</MetaText>
             </MetaItem>
 
             <MetaItem>
-              <MetaIcon>{/* <FiStar size={12} /> */}</MetaIcon>
+              <MetaIcon>
+                <Star size={12} />
+              </MetaIcon>
               <MetaText>{movie.vote_average.toFixed(1)}</MetaText>
             </MetaItem>
           </MovieMeta>

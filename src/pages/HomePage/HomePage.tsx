@@ -3,7 +3,7 @@ import { useSearchMoviesQuery } from '../../api/tmdbApi';
 import { SearchBar } from '../../components/SearchBar';
 import { MovieGrid } from '../../components/MovieGrid';
 import { Pagination } from '../../components/Pagination';
-// import { LoadingSpinner } from './LoadingSpinner';
+import { LoadingSpinner } from '../../components/LoadingSpinner';
 import { ErrorMessage } from '../../components/ErrorMessage';
 import { useDebounce } from '../../hooks/useDebounce';
 import {
@@ -36,7 +36,6 @@ export const HomePage = () => {
   }, [debouncedQuery]);
 
   const handleSearch = (query: string) => {
-    console.log('Search query:', query);
     setSearchQuery(query);
   };
 
@@ -59,8 +58,7 @@ export const HomePage = () => {
 
       {error && <ErrorMessage message="Failed to search movies. Please try again." />}
 
-      {/* TODO: implement a spinner */}
-      {/* {isLoading && <LoadingSpinner />} */}
+      {isLoading && <LoadingSpinner />}
 
       {searchResults && searchResults.results.length > 0 && (
         <>

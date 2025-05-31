@@ -51,22 +51,17 @@ export const FavoriteButton = styled.button`
   justify-content: center;
   width: 32px;
   height: 32px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
   color: white;
-  transition: ${({ theme }) => theme.transitions.default};
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
+  border: none;
+  cursor: pointer;
 `;
 
-export const FavoriteIcon = styled.div<{ $isFavorite?: boolean }>`
+export const FavoriteIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${({ $isFavorite, theme }) => ($isFavorite ? theme.colors.secondary : 'white')};
-  fill: ${({ $isFavorite, theme }) => ($isFavorite ? theme.colors.secondary : 'none')};
+  color: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const CardContent = styled.div`
