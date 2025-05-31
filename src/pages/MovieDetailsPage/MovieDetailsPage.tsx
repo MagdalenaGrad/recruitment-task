@@ -6,6 +6,7 @@ import type { RootState } from '../../app/store';
 import { addToFavorites, removeFromFavorites } from '../../app/favoritesSlice';
 import { LoadingSpinner } from '../../components/LoadingSpinner';
 import { ErrorMessage } from '../../components/ErrorMessage';
+import { MovieDetails } from '../../types/types';
 import {
   DetailsContainer,
   MovieContainer,
@@ -41,7 +42,15 @@ export const MovieDetailsPage = () => {
   const dispatch = useDispatch();
   const favorites = useSelector((state: RootState) => state.favorites.movies);
 
-  const { data: movie, isLoading, error } = useGetMovieDetailsQuery(Number(id), { skip: !id });
+  const {
+    data: movie,
+    isLoading,
+    error,
+  } = useGetMovieDetailsQuery(Number(id), { skip: !id }) as {
+    data: MovieDetails | undefined;
+    isLoading: boolean;
+    error: any;
+  };
 
   const isFavorite = movie && favorites.some((fav) => fav.id === movie.id);
 
@@ -121,8 +130,7 @@ export const MovieDetailsPage = () => {
             </MovieStats>
 
             <GenreList>
-              {/* TODO: extract and import type */}
-              {movie.genres.map((genre: { id: number; name: string }) => (
+              {movie.genres.map((genre) => (
                 <GenreBadge key={genre.id}>{genre.name}</GenreBadge>
               ))}
             </GenreList>
@@ -166,12 +174,9 @@ export const MovieDetailsPage = () => {
               <ProductionCompanies>
                 <DetailTitle>Production Companies</DetailTitle>
                 <div>
-                  {/* TODO: extract and import type */}
-                  {movie.production_companies.map(
-                    (company: { id: number; name: string; logo_path: string | null }) => (
-                      <CompanyBadge key={company.id}>{company.name}</CompanyBadge>
-                    )
-                  )}
+                  {movie.production_companies.map((company) => (
+                    <CompanyBadge key={company.id}>{company.name}</CompanyBadge>
+                  ))}
                 </div>
               </ProductionCompanies>
             )}
