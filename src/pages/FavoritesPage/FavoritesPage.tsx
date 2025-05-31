@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Heart } from 'lucide-react';
 import type { RootState } from '../../app/store';
-import { loadFavorites } from '../../features/favoritesSlice';
+import { loadFavorites } from '../../app/favoritesSlice';
 import { MovieGrid } from '../../components/MovieGrid';
 import { Pagination } from '../../components/Pagination';
 import { NavButton } from '../../components/NavButton';

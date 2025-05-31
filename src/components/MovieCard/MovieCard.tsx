@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Heart, Star, Calendar } from 'lucide-react';
 import type { Movie } from '../../types/types';
 import type { RootState } from '../../app/store';
-import { addToFavorites, removeFromFavorites } from '../../features/favoritesSlice';
+import { addToFavorites, removeFromFavorites } from '../../app/favoritesSlice';
 import {
   CardContainer,
   PosterContainer,

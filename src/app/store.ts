@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { tmdbApi } from '../api/tmdbApi';
-import favoritesReducer from '../features/favoritesSlice';
+import favoritesReducer from './favoritesSlice';
 
 export const store = configureStore({
   reducer: {

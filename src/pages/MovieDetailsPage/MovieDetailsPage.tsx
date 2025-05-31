@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Heart, Star, Calendar, Clock, DollarSign } from 'lucide-react';
 import { useGetMovieDetailsQuery } from '../../api/tmdbApi';
 import type { RootState } from '../../app/store';
-import { addToFavorites, removeFromFavorites } from '../../features/favoritesSlice';
+import { addToFavorites, removeFromFavorites } from '../../app/favoritesSlice';
 import { LoadingSpinner } from '../../components/LoadingSpinner';
 import { ErrorMessage } from '../../components/ErrorMessage';
 import {
