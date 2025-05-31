@@ -91,7 +91,7 @@ export const HomePage = () => {
         </EmptyStateContainer>
       )}
 
-      {!debouncedQuery && (
+      {!debouncedQuery && !error && (
         <EmptyStateContainer>
           <EmptyStateText>Start typing to search for movies...</EmptyStateText>
         </EmptyStateContainer>

@@ -15,7 +15,6 @@ export const theme = {
     success: '#22c55e',
     warning: '#f59e0b',
   },
-  // TODO: handle fonts
   fonts: {
     body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
     heading:

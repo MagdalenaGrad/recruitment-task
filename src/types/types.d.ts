@@ -27,10 +27,3 @@ export interface MovieDetails extends Movie {
   production_countries: { iso_3166_1: string; name: string }[];
   spoken_languages: { iso_639_1: string; name: string }[];
 }
-
-export interface SearchResponse {
-  page: number;
-  results: Movie[];
-  total_pages: number;
-  total_results: number;
-}

@@ -14,7 +14,7 @@ export const SpinnerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3rem 0; /* equivalent to py-12 */
+  padding: 3rem 0;
 `;
 
 export const StyledLoader = styled(Loader2)`

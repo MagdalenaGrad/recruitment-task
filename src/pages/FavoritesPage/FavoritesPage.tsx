@@ -23,7 +23,7 @@ import {
 
 const MOVIES_PER_PAGE = 10;
 
-export function FavoritesPage() {
+export const FavoritesPage = () => {
   const dispatch = useDispatch();
   const favorites = useSelector((state: RootState) => state.favorites.movies);
   const [currentPage, setCurrentPage] = useState(1);
@@ -86,4 +86,4 @@ export function FavoritesPage() {
       )}
     </FavoritesContainer>
   );
-}
+};
