@@ -1,3 +1,13 @@
+# 🎬 Movie Search App
+
+A React application for searching movies, viewing details, and managing your favorites. Built with TypeScript, Redux Toolkit, RTK Query, and styled-components.
+
+## 🚀 Live Preview
+
+Check out the app here: [https://recruitment-task-zeta.vercel.app](https://recruitment-task-zeta.vercel.app)
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
