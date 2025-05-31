@@ -41,3 +41,8 @@ export const EmptyStateText = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.lg};
   color: ${({ theme }) => theme.colors.muted};
 `;
+
+export const NavButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;

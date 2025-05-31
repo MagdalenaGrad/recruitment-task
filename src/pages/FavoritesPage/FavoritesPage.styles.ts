@@ -20,7 +20,6 @@ export const HeaderIcon = styled.div`
   align-items: center;
   justify-content: center;
   color: ${({ theme }) => theme.colors.secondary};
-  fill: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const PageTitleWrapper = styled.div`
@@ -67,3 +66,5 @@ export const EmptyTitle = styled.h2`
 export const EmptyText = styled.p`
   color: ${({ theme }) => theme.colors.muted};
 `;
+
+export const NavButtonContainer = styled.div``;

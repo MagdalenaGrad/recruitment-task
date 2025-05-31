@@ -6,6 +6,7 @@ import type { RootState } from '../../app/store';
 import { loadFavorites } from '../../features/favoritesSlice';
 import { MovieGrid } from '../../components/MovieGrid';
 import { Pagination } from '../../components/Pagination';
+import { NavButton } from '../../components/NavButton';
 import {
   FavoritesContainer,
   PageTitleWrapper,
@@ -17,6 +18,7 @@ import {
   EmptyIcon,
   EmptyTitle,
   EmptyText,
+  NavButtonContainer,
 } from './FavoritesPage.styles';
 
 const MOVIES_PER_PAGE = 10;
@@ -41,6 +43,9 @@ export function FavoritesPage() {
 
   return (
     <FavoritesContainer>
+      <NavButtonContainer>
+        <NavButton to="/" direction="left" text="Back to Home" />
+      </NavButtonContainer>
       <FavoritesHeader>
         <HeaderIcon>
           <Heart size={32} />

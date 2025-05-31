@@ -5,6 +5,7 @@ import { MovieGrid } from '../../components/MovieGrid';
 import { Pagination } from '../../components/Pagination';
 import { LoadingSpinner } from '../../components/LoadingSpinner';
 import { ErrorMessage } from '../../components/ErrorMessage';
+import { NavButton } from '../../components/NavButton';
 import { useDebounce } from '../../hooks/useDebounce';
 import {
   HomePageContainer,
@@ -14,6 +15,7 @@ import {
   ResultsInfo,
   EmptyStateContainer,
   EmptyStateText,
+  NavButtonContainer,
 } from './HomePage.styles';
 
 export const HomePage = () => {
@@ -46,6 +48,9 @@ export const HomePage = () => {
 
   return (
     <HomePageContainer>
+      <NavButtonContainer>
+        <NavButton to="/favorites" direction="right" text="Your Favorites" />
+      </NavButtonContainer>
       <HomePageHeader>
         <HomePageTitle>Discover Amazing Movies</HomePageTitle>
         <HomePageSubtitle>

@@ -43,7 +43,7 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
 
   const posterUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    : 'https://via.placeholder.com/500x750?text=No+Poster';
+    : 'https://dummyimage.com/500x750/e2e2e2/666666.png&text=No+Poster';
 
   const releaseYear = movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A';
 

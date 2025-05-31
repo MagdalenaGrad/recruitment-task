@@ -61,7 +61,7 @@ export const MovieDetailsPage = () => {
 
   const posterUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    : 'https://via.placeholder.com/500x750?text=No+Poster';
+    : 'https://dummyimage.com/500x750/e2e2e2/666666.png&text=No+Poster';
 
   const backdropUrl = movie.backdrop_path
     ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`
